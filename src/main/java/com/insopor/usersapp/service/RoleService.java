@@ -32,8 +32,20 @@ public class RoleService {
 			return repository.save(role);
 		}else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, 
-					String.format("Role ID doesn´t $d exist", roleId));
+					String.format("Role ID doesn´t %d exist", roleId));
 		}
+	}
+	
+	public void deleteRole(Integer roleId) {
+		Optional<Role> result = repository.findById(roleId);
+		
+		if(result.isPresent()) {
+			repository.delete(result.get());
+		}else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, 
+					String.format("Role ID doesn´t %d exist", roleId));
+		}
+		
 	}
 
 
