@@ -27,7 +27,7 @@ public class UsersAppApplication implements ApplicationRunner{
 	public void run(ApplicationArguments args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 10000; i++) {
 			
 			User user = new User();
 			
